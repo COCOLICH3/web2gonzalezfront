@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body" *ngIf="user">
+    <h5 class="card-title">{{user.firstname}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{user.lastname}}</h6>
+
+    <p class="card-text">
+      <label> Email: </label> {{user.email}}
+    </p>
+    <a class="btn btn-danger btn-sm" (click)='deleteUser()'>Borrar</a>
+  </div>
+</div>

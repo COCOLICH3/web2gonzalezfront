@@ -1,0 +1,19 @@
+<h3>Configuracion</h3>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="titulo">Titulo</label>
+      <input type="titulo" class="form-control" id="titulo" required [(ngModel)]="titulo" name="titulo">
+    </div>
+    <div class="form-group">
+      <label for="color">Color Fondo</label>
+      <input type="color" class="form-control" id="color" required [(ngModel)]="color" name="color">
+    </div>
+
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+  </form>
+</div>
+<br/>
+

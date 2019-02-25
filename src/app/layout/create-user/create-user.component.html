@@ -1,0 +1,25 @@
+<h3>Creacion usuarios</h3>
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstname">Nombre</label>
+      <input type="text" class="form-control" id="firstname" required [(ngModel)]="user.firstname" name="firstname">
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Apellido</label>
+      <input type="text" class="form-control" id="lastname" required [(ngModel)]="user.lastname" name="lastname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+
+    <button type="submit" class="btn btn-success">Agregar</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Creacion exitosa!</h4>
+  <button class="btn btn-success" (click)="newUser()">Agregar</button>
+</div>

@@ -1,0 +1,67 @@
+<div class="card gedf-card" *ngIf="wall">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="mr-2">
+          <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+        </div>
+        <div class="ml-2">
+          <div class="h5 m-0">@{{wall.post.user_creator.username}}</div>
+          <div class="h7 text-muted">{{wall.post.user_creator.lastname}} {{wall.post.user_creator.firstname}}</div>
+        </div>
+      </div>
+      <div>
+        <div class="dropdown">
+          <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-ellipsis-h"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+            <div class="h6 dropdown-header">Configuracion</div>
+            <a class="dropdown-item" (click)="onDeletePost()">Eliminar</a>
+            <!--<a class="dropdown-item" href="#">Hide</a>-->
+            <!--<a class="dropdown-item" href="#">Report</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <div class="text-muted h7 mb-2"><i class="fa fa-clock-o"></i> {{wall.post.creation_date | date: 'dd/MM/yyyy
+      HH:mm:ss'}}
+    </div>
+    <!--<a class="card-link" href="#">-->
+    <!--<h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adip.</h5>-->
+    <!--</a>-->
+
+    <p class="card-text">
+      {{wall.post.text}}
+    </p>
+
+    <div *ngIf="wall.post.image" style="width:200px;height:300px">
+      <img [src]="wall.post.image" class="img-thumbnail">
+    </div>
+  </div>
+  <div class="card-footer">
+    <!--<a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>-->
+    <!--<a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>-->
+    <a class="card-link" (click)="onShare(content)"><i class="fa fa-mail-forward"></i> Compartir</a>
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Compartir</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <search-users (onShare)="onShareClick($event)"></search-users>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cerrar</button>
+  </div>
+</ng-template>
